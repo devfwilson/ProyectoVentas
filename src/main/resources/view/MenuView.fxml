@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="1096.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wilsonflorian.controller.MenuController">
+    <stylesheets>
+        <URL value="@/view/menuview.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="btnCompras" contentDisplay="TOP" layoutX="280.0" layoutY="205.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="145.0" prefWidth="181.0" text="Venta">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="122.0" preserveRatio="true">
+               <image>
+                  <Image url="@../image/7626835.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnProductos" contentDisplay="TOP" layoutX="596.0" layoutY="204.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="146.0" prefWidth="182.0" text="Inventario">
+         <graphic>
+            <ImageView fitHeight="106.0" fitWidth="123.0" preserveRatio="true">
+               <image>
+                  <Image url="@../image/2942322.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
