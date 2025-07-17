@@ -28,11 +28,35 @@
             <TextField fx:id="txtContraseña" prefHeight="40.0" prefWidth="224.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button fx:id="btnIngresar" layoutX="668.0" layoutY="472.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="50.0" prefWidth="86.0" text="Login" />
-      <Button fx:id="btnCerrar" layoutX="52.0" layoutY="556.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="50.0" prefWidth="86.0" text="Salir" />
-      <ImageView fitHeight="256.0" fitWidth="254.0" layoutX="420.0" layoutY="47.0" preserveRatio="true">
+      <Button fx:id="btnIngresar" layoutX="579.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="50.0" prefWidth="72.0">
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/6238177.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnCerrar" layoutX="32.0" layoutY="48.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="62.0" prefWidth="86.0">
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/3094700.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fitHeight="229.0" fitWidth="232.0" layoutX="431.0" layoutY="48.0" preserveRatio="true">
          <image>
-            <Image url="@../image/LOGIN.png" />
+            <Image url="@../image/17230343.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="761.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/6772234.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="761.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/9428917.png" />
          </image>
       </ImageView>
    </children>

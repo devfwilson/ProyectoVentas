@@ -1,7 +1,86 @@
-/*
- * Empty Stylesheet file.
- */
-
+/* Fondo principal del AnchorPane */
 .mainFxmlClass {
+    -fx-background-color: linear-gradient(to bottom right, #34495e, #00cccc);
+    -fx-padding: 20px;
+}
 
+/* Estilo general para etiquetas grandes */
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* Etiquetas específicas (como "CANTIDAD", "PRODUCTO") */
+.label-textField {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 5 10;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0.2, 0, 2);
+}
+
+/* Spinner */
+.spinner {
+    -fx-background-color: white;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 5 10;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0.2, 0, 2);
+}
+
+/* Botones */
+.button {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 10px 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.3, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #3498db;
+}
+
+.button:pressed {
+    -fx-background-color: #2471a3;
+}
+
+/* Tabla */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0.3, 0, 2);
+    -fx-table-cell-border-color: #ecf0f1;
+    -fx-padding: 5;
+}
+
+/* Columnas centradas */
+.table-column {
+    -fx-alignment: CENTER;
+}
+
+/* Imagen (logo) */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.4, 0, 2);
+}
+
+/* Grid personalizado (opcional para márgenes o alineación) */
+.grid-pane {
+    -fx-padding: 10;
+    -fx-hgap: 20;
+    -fx-vgap: 15;
 }

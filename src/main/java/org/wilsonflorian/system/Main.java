@@ -34,8 +34,6 @@ public class Main extends Application {
     public void start(Stage escenarioPrincipal) throws Exception {
         this.escenarioPrincipal = escenarioPrincipal;
         escenarioPrincipal.setTitle("Tienda Exitante");
-        Image icono = new javafx.scene.image.Image("/image/Logo.png");
-        escenarioPrincipal.getIcons().add(icono);
         getLoginView();
         escenarioPrincipal.show();
     }

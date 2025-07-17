@@ -1,7 +1,32 @@
-/*
- * Empty Stylesheet file.
- */
-
+/* Fondo principal */
 .mainFxmlClass {
+    -fx-background-color: linear-gradient(to bottom right, #34495e, #00cccc);
+    -fx-padding: 20px;
+}
 
+/* Botones de menú (con íconos) */
+.button {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.4, 0, 2);
+    -fx-content-display: top;
+    -fx-padding: 10px;
+}
+
+/* Imagen dentro de los botones */
+.button .image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0.3, 0, 2);
+}
+
+/* Hover y efecto al presionar */
+.button:hover {
+    -fx-background-color: #3498db;
+}
+
+.button:pressed {
+    -fx-background-color: #2471a3;
 }

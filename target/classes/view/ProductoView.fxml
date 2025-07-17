@@ -72,13 +72,17 @@
       </TableView>
       <ImageView fitHeight="54.0" fitWidth="66.0" layoutX="38.0" layoutY="32.0" preserveRatio="true">
          <image>
-            <Image url="@../image/2942322.png" />
+            <Image url="@7078310.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRegresar" layoutX="838.0" layoutY="37.0" mnemonicParsing="false" onAction="#btnRegresarActionEvent" text="Regresar">
-         <font>
-            <Font size="20.0" />
-         </font>
+      <Button fx:id="btnCerrar" layoutX="805.0" layoutY="45.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="62.0" prefWidth="86.0">
+         <graphic>
+            <ImageView fx:id="btnRegresar" fitHeight="66.0" fitWidth="50.0" onDragDetected="#btnRegresarActionEvent" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/3094700.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
    </children>
 </AnchorPane>
