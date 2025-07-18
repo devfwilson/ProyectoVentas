@@ -23,7 +23,7 @@ import org.wilsonflorian.system.Main;
 public class ProductoController implements Initializable {
 
     @FXML
-    private Button btnRegresar, btnAgregar, btnEditar, btnEliminar, btnReporte;
+    private Button btnRegresar, btnAgregar, btnEditar, btnEliminar;
 
     @FXML
     private TableView<Producto> tablaProductos;

@@ -1,38 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 
-<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="1096.0" styleClass="mainFxmlClass" stylesheets="@menuview.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wilsonflorian.controller.MenuController">
+<AnchorPane prefHeight="605.0" prefWidth="1096.0" styleClass="mainFxmlClass" stylesheets="@menuview.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wilsonflorian.controller.MenuController">
    <children>
-      <Button fx:id="btnCompras" contentDisplay="TOP" layoutX="573.0" layoutY="204.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="260.0" prefWidth="259.0" text="Venta">
+
+      <!-- Encabezado -->
+      <Label layoutY="78.0" prefWidth="1096.0" styleClass="tituloPrincipal" text="MENÚ PRINCIPAL" />
+
+      <!-- Línea divisoria decorativa -->
+      <Line endX="1040" endY="70" layoutY="58.0" startX="50" startY="70" stroke="white" strokeWidth="2" />
+
+      <!-- Botón Regresar -->
+      <Button fx:id="btnCerrar" layoutX="49.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="70.0" prefWidth="100.0" text="Regresar">
          <graphic>
-            <ImageView fitHeight="100.0" fitWidth="122.0" preserveRatio="true">
+            <ImageView fitHeight="42.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/5408490.png" />
+                  <Image url="@../image/REGRESAR.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnProductos" contentDisplay="TOP" layoutX="281.0" layoutY="204.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="260.0" prefWidth="259.0" text="Inventario">
-         <graphic>
-            <ImageView fitHeight="106.0" fitWidth="123.0" preserveRatio="true">
-               <image>
-                  <Image url="@../image/7282664.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="btnCerrar" layoutX="26.0" layoutY="29.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="80.0" prefWidth="96.0">
-         <graphic>
-            <ImageView fitHeight="66.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/3094700.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+
+      <!-- Contenedor para botones principales -->
+      <AnchorPane layoutX="50.0" layoutY="153.0" prefHeight="400.0" prefWidth="996.0">
+         <children>
+            <Button fx:id="btnCompras" contentDisplay="TOP" layoutX="20.0" layoutY="60.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="260.0" prefWidth="259.0" text="Gestionar compras">
+               <graphic>
+                  <ImageView fitHeight="180.0" fitWidth="180.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/COMPRAS2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <Button fx:id="btnProductos" contentDisplay="TOP" layoutX="370.0" layoutY="60.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="260.0" prefWidth="259.0" text="Gestionar inventario">
+               <graphic>
+                  <ImageView fitHeight="180.0" fitWidth="180.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/PRODUCTOS.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <Button fx:id="btnVentas" contentDisplay="TOP" layoutX="720.0" layoutY="60.0" mnemonicParsing="false" onAction="#clickManejadorEventos" prefHeight="260.0" prefWidth="259.0" text="Realizar compras">
+               <graphic>
+                  <ImageView fitHeight="180.0" fitWidth="179.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/COMPRAS.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Line endX="8.4000244140625" endY="372.0" fill="BLACK" layoutX="316.0" layoutY="28.0" startX="8.4000244140625" startY="-28.0" stroke="#ae9090" />
+            <Line endX="8.4000244140625" endY="372.0" fill="BLACK" layoutX="665.0" layoutY="28.0" startX="8.4000244140625" startY="-28.0" stroke="#ae9090" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

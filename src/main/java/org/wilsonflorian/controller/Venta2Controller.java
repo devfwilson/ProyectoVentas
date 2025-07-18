@@ -11,14 +11,13 @@ import org.wilsonflorian.system.Main;
 
 public class Venta2Controller implements Initializable {
 
-    @FXML private TextField txtSubtotal;
     @FXML private TextField txtTotal;
     @FXML private Button btnPagar;
     @FXML private Button btnCancelar;
     
     private Main principal;
     private int idCompraActual;
-    private double subtotal;
+    private double total;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -26,19 +25,16 @@ public class Venta2Controller implements Initializable {
     }
 
     private void configurarCampos() {
-        txtSubtotal.setEditable(false);
         txtTotal.setEditable(false);
     }
 
-    public void initData(int idCompra, double subtotal) {
+    public void initData(int idCompra, double total) {
         this.idCompraActual = idCompra;
-        this.subtotal = subtotal;
+        this.total = total;
         mostrarDatos();
     }
 
     private void mostrarDatos() {
-        txtSubtotal.setText(String.format("Q%.2f", subtotal));
-        double total = subtotal * 1.12; // Aplicar IVA del 12%
         txtTotal.setText(String.format("Q%.2f", total));
     }
 

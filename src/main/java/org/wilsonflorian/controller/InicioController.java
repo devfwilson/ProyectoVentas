@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.wilsonflorian.database.Conexion;
 import org.wilsonflorian.model.Usuario;
@@ -21,23 +23,25 @@ import org.wilsonflorian.system.Main;
  *
  * @author Wilson Florian
  */
+
 public class InicioController implements Initializable {
 
     private Main principal;
     private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private boolean modoRegistro = false;
 
     public void setPrincipal(Main principal) {
         this.principal = principal;
     }
 
     @FXML
-    private Button btnIngresar;
-    @FXML
-    private Button btnCerrar;
+    private Button btnIngresar, btnCerrar, btnRegistro;
     @FXML
     private TextField txtCorreo;
     @FXML
-    private TextField txtContraseña;
+    private PasswordField txtContraseña;
+    @FXML
+    private Label lblCuenta;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -46,6 +50,7 @@ public class InicioController implements Initializable {
 
     private void cargarUsuarios() {
         try {
+            usuarios.clear();
             Connection conexion = Conexion.getInstancia().getConexion();
             PreparedStatement stmt = conexion.prepareStatement("call sp_ListarUsuarios()");
             ResultSet rs = stmt.executeQuery();
@@ -68,10 +73,32 @@ public class InicioController implements Initializable {
     @FXML
     private void clickManejadorEventos(ActionEvent evento) {
         if (evento.getSource() == btnIngresar) {
-            iniciarSesion();
+            if (modoRegistro) {
+                registrarUsuario();
+            } else {
+                iniciarSesion();
+            }
         }
         if (evento.getSource() == btnCerrar) {
             System.exit(0);
+        }
+        if (evento.getSource() == btnRegistro) {
+            toggleModoRegistro();
+        }
+    }
+
+    private void toggleModoRegistro() {
+        modoRegistro = !modoRegistro;
+        
+        if (modoRegistro) {
+            lblCuenta.setText("¿Ya tienes una cuenta?");
+            btnIngresar.setText("Guardar");
+            btnRegistro.setText("Regresar");
+        } else {
+            lblCuenta.setText("¿No tienes una cuenta?");
+            btnIngresar.setText("Ingresar");
+            btnRegistro.setText("Regístrate");
+            limpiarCampos();
         }
     }
 
@@ -87,11 +114,42 @@ public class InicioController implements Initializable {
         for (Usuario u : usuarios) {
             if (u.getCorreoUsuario().equals(usuario) && u.getContraseñaUsuario().equals(contrasena)) {
                 principal.getMenuView();
-            }
-            if (!u.getCorreoUsuario().equals(usuario) || !u.getContraseñaUsuario().equals(contrasena)) {
-                mostrarAlerta("Error", "Correo o contraseña incorrecta");
+                limpiarCampos();
+                return;
             }
         }
+        mostrarAlerta("Error", "Correo o contraseña incorrecta");
+    }
+
+    private void registrarUsuario() {
+        String correo = txtCorreo.getText();
+        String contrasena = txtContraseña.getText();
+
+        if (correo.isEmpty() || contrasena.isEmpty()) {
+            mostrarAlerta("Error", "Debe completar ambos campos");
+            return;
+        }
+
+        try {
+            Connection conexion = Conexion.getInstancia().getConexion();
+            PreparedStatement stmt = conexion.prepareStatement("call sp_agregarUsuario(?, ?)");
+            stmt.setString(1, correo);
+            stmt.setString(2, contrasena);
+            stmt.execute();
+
+            mostrarAlerta("Éxito", "Usuario registrado correctamente");
+            cargarUsuarios();
+            toggleModoRegistro();
+        } catch (Exception e) {
+            System.out.println("Error al registrar usuario: " + e.getMessage());
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo registrar el usuario");
+        }
+    }
+
+    private void limpiarCampos() {
+        txtCorreo.clear();
+        txtContraseña.clear();
     }
 
     private void mostrarAlerta(String titulo, String mensaje) {

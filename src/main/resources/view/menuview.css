@@ -4,13 +4,13 @@
     -fx-padding: 20px;
 }
 
-/* Botones de menú (con íconos) */
+/* Botones del menú */
 .button {
     -fx-background-color: #2980b9;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-font-size: 16px;
-    -fx-background-radius: 8px;
+    -fx-background-radius: 12px;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.4, 0, 2);
     -fx-content-display: top;
@@ -22,11 +22,19 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0.3, 0, 2);
 }
 
-/* Hover y efecto al presionar */
+/* Hover y presionado */
 .button:hover {
     -fx-background-color: #3498db;
 }
-
 .button:pressed {
     -fx-background-color: #2471a3;
+}
+
+/* Título principal */
+.tituloPrincipal {
+    -fx-font-size: 32px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
 }

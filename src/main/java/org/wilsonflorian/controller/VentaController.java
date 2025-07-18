@@ -124,25 +124,25 @@ public class VentaController implements Initializable {
     }
 
     private void crearNuevaCompra() {
-    try {
-        Connection conexion = Conexion.getInstancia().getConexion();
-        if (idCompraActual == 0) {
-            CallableStatement procedimiento = conexion.prepareCall(
-                "{call sp_agregarCompra(?, ?, ?)}");
-            
-            procedimiento.setString(1, "Pendiente");
-            procedimiento.setString(2, "Pendiente");
-            
-            procedimiento.registerOutParameter(3, Types.INTEGER);
-            
-            procedimiento.execute();
-            
-            idCompraActual = procedimiento.getInt(3);
+        try {
+            Connection conexion = Conexion.getInstancia().getConexion();
+            if (idCompraActual == 0) {
+                CallableStatement procedimiento = conexion.prepareCall(
+                        "{call sp_agregarCompra(?, ?, ?)}");
+
+                procedimiento.setString(1, "Pendiente");
+                procedimiento.setString(2, "Pendiente");
+
+                procedimiento.registerOutParameter(3, Types.INTEGER);
+
+                procedimiento.execute();
+
+                idCompraActual = procedimiento.getInt(3);
+            }
+        } catch (SQLException e) {
+            mostrarAlerta("Error al crear nueva compra: " + e.getMessage());
         }
-    } catch (SQLException e) {
-        mostrarAlerta("Error al crear nueva compra: " + e.getMessage());
     }
-}
 
     @FXML
     private void agregarProductoAVenta() {
@@ -233,10 +233,19 @@ public class VentaController implements Initializable {
     @FXML
     private void finalizarVenta() {
         if (idCompraActual != 0 && !tablaProductos.getItems().isEmpty()) {
-            principal.getVenta2View();
+            double subtotal = calcularSubtotal();
+            principal.getVenta2View(idCompraActual, subtotal);
         } else {
             mostrarAlerta("No hay productos en la venta para finalizar");
         }
+    }
+
+    private double calcularSubtotal() {
+        double subtotal = 0;
+        for (Producto producto : tablaProductos.getItems()) {
+            subtotal += producto.getSubtotal();
+        }
+        return subtotal;
     }
 
     private void limpiarSeleccion() {
@@ -260,7 +269,6 @@ public class VentaController implements Initializable {
     @FXML
     private void regresarAMenu() {
         if (idCompraActual != 0 && !tablaProductos.getItems().isEmpty()) {
-            // Preguntar si desea cancelar la venta actual
             Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
             confirmacion.setTitle("Confirmación");
             confirmacion.setHeaderText("Venta en progreso");

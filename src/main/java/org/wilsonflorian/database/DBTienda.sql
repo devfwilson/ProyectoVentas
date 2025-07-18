@@ -323,22 +323,26 @@ begin
     set new.total = total_compra;
 end$$
 delimiter ;
-call sp_AgregarUsuario("b","b");
 call sp_AgregarUsuario("a","a");
 	
 
 call sp_ListarUsuarios();
 
-call sp_AgregarProducto('Tortrix de limón','2.00',30);
-call sp_AgregarProducto('Galleta club extra','1.00',30);
-call sp_AgregarProducto('Diccionario básico','30.00',30);
-call sp_AgregarProducto('Botella pequeña de alcohol','3.00',30);
-call sp_AgregarProducto('Botella de agua pura cielo','2.00',30);
-call sp_AgregarProducto('botella de té fuze tea','3.5',30);
-call sp_AgregarProducto('Botella de refresco rica roja','2.5',30);
-call sp_AgregarProducto('Bolsa de sal yodada','1.00',30);
-call sp_AgregarProducto('Chobix de barbacoa','1.00',30);
-call sp_AgregarProducto('Tortrix picante','2.00',30);
+call sp_AgregarProducto('Anillo de diamantes 2 quilates','15000.00',15);
+call sp_AgregarProducto('Collar de oro 18k con zafiros','8500.00',12);
+call sp_AgregarProducto('Reloj Rolex Daytona platino','35000.00',8);
+call sp_AgregarProducto('Pendientes de perlas cultivadas','3200.00',20);
+call sp_AgregarProducto('Pulsera de platino con diamantes','12500.00',10);
+call sp_AgregarProducto('Broche de esmeraldas colombianas','7800.00',6);
+call sp_AgregarProducto('Sortija de rubí birmano','9200.00',9);
+call sp_AgregarProducto('Cadena de oro blanco 24k 50cm','6800.00',18);
+call sp_AgregarProducto('Gemelos de ónix con incrustaciones de diamante','4500.00',14);
+call sp_AgregarProducto('Diadema de plata con circonitas','2900.00',7);
+call sp_AgregarProducto('Brazalete de oro rosa con diamantes rosados','14200.00',5);
+call sp_AgregarProducto('Colgante de ámbar del Báltico con marco de oro','5300.00',11);
+call sp_AgregarProducto('Conjunto de zafiro azul (anillo y pendientes)','18700.00',6);
+call sp_AgregarProducto('Reloj Patek Philippe Complications','42000.00',4);
+call sp_AgregarProducto('Collar de perlas negras Tahití con cierre de diamantes','21500.00',8);
 
 call sp_ListarProductos();
 

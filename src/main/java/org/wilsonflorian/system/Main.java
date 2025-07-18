@@ -6,9 +6,11 @@ import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.wilsonflorian.controller.CompraController;
 import org.wilsonflorian.controller.InicioController;
 import org.wilsonflorian.controller.MenuController;
 import org.wilsonflorian.controller.ProductoController;
@@ -33,7 +35,9 @@ public class Main extends Application {
     @Override
     public void start(Stage escenarioPrincipal) throws Exception {
         this.escenarioPrincipal = escenarioPrincipal;
-        escenarioPrincipal.setTitle("Tienda Exitante");
+        escenarioPrincipal.setTitle("Joyería 'Los Brothers'");
+        Image icono = new Image ("/image/JOYERÍA1.png");
+        escenarioPrincipal.getIcons().add(icono);
         getLoginView();
         escenarioPrincipal.show();
     }
@@ -71,7 +75,7 @@ public class Main extends Application {
                     = (MenuController) cambiarEscena("MenuView.fxml");
             control.setPrincipal(this);
         } catch (Exception ex) {
-            System.out.println("Error al ir al Menu: " + ex.getMessage());
+            System.out.println("Error al ir al menu: " + ex.getMessage());
             ex.printStackTrace();
         }
     }
@@ -82,7 +86,18 @@ public class Main extends Application {
                     = (ProductoController) cambiarEscena("ProductoView.fxml");
             control.setPrincipal(this);
         } catch (Exception ex) {
-            System.out.println("Error al ir al Producto: " + ex.getMessage());
+            System.out.println("Error al ir a productos: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
+    
+    public void getComprasView() {
+        try {
+            CompraController control
+                    = (CompraController) cambiarEscena("CompraView.fxml");
+            control.setPrincipal(this);
+        } catch (Exception ex) {
+            System.out.println("Error al ir a compras: " + ex.getMessage());
             ex.printStackTrace();
         }
     }
@@ -93,10 +108,27 @@ public class Main extends Application {
                     = (VentaController) cambiarEscena("VentaView.fxml");
             control.setPrincipal(this);
         } catch (Exception ex) {
-            System.out.println("Error al ir al Venta: " + ex.getMessage());
+            System.out.println("Error al ir al menu de ventas: " + ex.getMessage());
             ex.printStackTrace();
         }
     }
+    
+    public void getVenta2View(int idCompra, double subtotal) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(URL + "Venta2View.fxml"));
+        Parent root = loader.load();
+        
+        Venta2Controller controller = loader.getController();
+        controller.setPrincipal(this);
+        controller.initData(idCompra, subtotal);
+        
+        escenarioPrincipal.setScene(new Scene(root));
+        escenarioPrincipal.sizeToScene();
+    } catch (Exception ex) {
+        System.out.println("Error al ir al menu 2 de ventas: " + ex.getMessage());
+        ex.printStackTrace();
+    }
+}
     
     public void getVenta2View() {
         try {
@@ -104,9 +136,8 @@ public class Main extends Application {
                     = (Venta2Controller) cambiarEscena("Venta2View.fxml");
             control.setPrincipal(this);
         } catch (Exception ex) {
-            System.out.println("Error al ir al Venta: " + ex.getMessage());
+            System.out.println("Error al ir al menu 2 de ventas: " + ex.getMessage());
             ex.printStackTrace();
         }
     }
 }
-

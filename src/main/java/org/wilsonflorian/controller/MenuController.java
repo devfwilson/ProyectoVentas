@@ -18,9 +18,8 @@ public class MenuController implements Initializable {
     private Main principal;
 
     @FXML
-    private Button btnCompras;
-    @FXML
-    private Button btnProductos;
+    private Button btnCompras, btnProductos, btnVentas, btnCerrar;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -32,11 +31,17 @@ public class MenuController implements Initializable {
     }
 
     public void clickManejadorEventos(ActionEvent evento) {
-        if (evento.getSource() == btnCompras) {
+        if (evento.getSource() == btnVentas) {
             principal.getVentaView();
 
         } else if (evento.getSource() == btnProductos) {
             principal.getProductoView();
+            
+        } else if (evento.getSource() == btnCompras) {
+            principal.getComprasView();
+            
+        } else if (evento.getSource() == btnCerrar) {
+            principal.getLoginView();
         }
     }
 }
